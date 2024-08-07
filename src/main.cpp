@@ -71,7 +71,11 @@ int main() {
     });
 
     int statsPanelSz = 14;
-    auto split = ResizableSplitLeft(statsPanel, chatPanel, &statsPanelSz);
+    int chatPanelSz = 30;
+    int commandPanelSz = 2;
+    auto split = ResizableSplitBottom(commandPanel, mainPanel, &commandPanelSz);
+    split = ResizableSplitLeft(statsPanel, mainPanel, &statsPanelSz);
+    split = ResizableSplitRight(chatPanel, split, &chatPanelSz);
 
     mainScr.Loop(split | border);
 }
