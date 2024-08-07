@@ -34,7 +34,7 @@ int main() {
     auto r_mainPanel = Container::Vertical({});
     auto r_chatPanel = Container::Vertical({});
 
-    auto statsPanel = Renderer([&] {
+    auto statsPanel = Renderer(r_statsPanel, [&] {
         return vbox({
             text(fName + " " + lName) | bold,
             text("job"),
@@ -43,38 +43,45 @@ int main() {
         });
     });
 
-    auto quickActionPanel = Renderer([&] {
-        return hbox({
-            text("Action box!"),
-        });
-    });
-
-    auto commandPanel = Renderer([&] {
+    auto mainPanel = Renderer(r_mainPanel, [&] {
         return vbox({
-            text("Sample text"),
+            hbox({
+                text("1") | flex | border | center,
+                text("1") | flex | border | center,
+                text("1") | flex | border | center,
+                text("1") | flex | border | center,
+                text("1") | flex | border | center,
+                text("1") | flex | border | center,
+            }),
+            separator(),
+            vbox({
+                text("This is where you fight and do stuff"),
+            }) | flex,
+            separator(),
+            vbox({
+                text("$: "),
+            }),
         });
     });
 
-    auto mainPanel = Renderer([&] {
-        return vbox({
-            text("This is where you fight and do stuff"),
-        });
-    });
-
-    auto chatPanel = Renderer([&] {
+    auto chatPanel = Renderer(r_chatPanel, [&] {
         const std::string chatPanelName = "Chat";
         const std::string chatIntroMsg =
             "This is where you can chat with your non-existent friends!";
         return vbox({
-            text(chatIntroMsg),
+            text("Chat"),
+            text("Connected at 192.168.0.99"),
+            text("Happy August 6, 2024"),
+            separator(),
+            paragraph(chatIntroMsg),
         });
     });
 
     int statsPanelSz = 14;
     int chatPanelSz = 30;
     int commandPanelSz = 2;
-    auto split = ResizableSplitBottom(commandPanel, mainPanel, &commandPanelSz);
-    split = ResizableSplitLeft(statsPanel, mainPanel, &statsPanelSz);
+
+    auto split = ResizableSplitLeft(statsPanel, mainPanel, &statsPanelSz);
     split = ResizableSplitRight(chatPanel, split, &chatPanelSz);
 
     mainScr.Loop(split | border);
