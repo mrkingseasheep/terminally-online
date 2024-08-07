@@ -1,0 +1,3 @@
+/home/yang/000-Projects/terminal_rpg/terminally-online/build/_deps/ftxui-subbuild/CMakeFiles/ftxui-populate.dir
+/home/yang/000-Projects/terminal_rpg/terminally-online/build/_deps/ftxui-subbuild/CMakeFiles/edit_cache.dir
+/home/yang/000-Projects/terminal_rpg/terminally-online/build/_deps/ftxui-subbuild/CMakeFiles/rebuild_cache.dir

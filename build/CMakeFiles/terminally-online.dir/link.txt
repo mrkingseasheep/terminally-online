@@ -1,0 +1,1 @@
+/usr/bin/c++ "CMakeFiles/terminally-online.dir/src/main.cpp.o" -o terminally-online  _deps/ftxui-build/libftxui-screen.a _deps/ftxui-build/libftxui-dom.a _deps/ftxui-build/libftxui-component.a _deps/ftxui-build/libftxui-dom.a _deps/ftxui-build/libftxui-screen.a
